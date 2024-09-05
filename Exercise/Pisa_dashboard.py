@@ -63,7 +63,7 @@ def layout():
     filtered_data = df[df['LOCATION'] == selected_country]
     trends = filtered_data.groupby('TIME')['Value'].mean().reset_index()
     
-    fig = px.line(trends, x='TIME', y='Value', title=f'Trend för {selected_country}')
+    fig = px.line(trends, x='TIME', y='Value', title=f'Trend for {selected_country}')
 
     st.plotly_chart(fig)
     

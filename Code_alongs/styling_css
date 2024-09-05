@@ -1,0 +1,61 @@
+:root {
+    
+
+  --ratio: 1.5;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+
+  --primary: #050505;
+  --background: #fafafa;
+  --background-secondary: #ebebeb;
+}
+
+
+
+body * + * {
+    margin-top: (--s-2);
+}
+
+[data-testid|="stHeader"]{
+    display: none;
+    background-color: var(--background-secondary);
+}
+
+h1, h2, h3, p {
+    color: var(--primary);
+}
+
+h1{ 
+    font-size: var(--s3);
+}
+
+h2{
+    font-size: var(--s1);
+}
+
+h3{
+    font-size: var(--s0);
+}
+
+/*. för att använda class selector*/
+.stAppViewBlockContainer{
+    background-color: var(--background);
+    padding-top: var(--s1);
+    padding-left: var(--s3);
+    padding-right: var(--s3);
+    max-width: 110ch;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] * {
+    background-color: revert;
+  }
+

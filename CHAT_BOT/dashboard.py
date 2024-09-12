@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-from pathlib import Path
 from bot import Bot
 
 def initialize_session_state():
@@ -26,7 +24,7 @@ def handle_user_input():
     """Handle user input and generate bot response."""
     
     # Visar ett inmatningsfält för användaren och sparar det som 'prompt' om något skrivs in
-    if prompt := st.chat_input("What is up?"):
+    if prompt := st.chat_input("Läget?"):
         
         # Visar användarens inmatning i chattgränssnittet
         with st.chat_message("user"):
@@ -37,7 +35,7 @@ def handle_user_input():
 
         # Genererar botens svar genom att skicka användarens meddelande till Bot-klassen
         bot_response = st.session_state.bot.chat(prompt)
-        response = f"Ro Båt: {bot_response}"
+        response = f"Glenn: {bot_response}"
 
         # Visar botens svar i chattgränssnittet
         with st.chat_message("assistant"):
@@ -48,8 +46,8 @@ def handle_user_input():
 
 def layout():
     """Define the layout of the Streamlit app."""
-    st.title("Chatting with RO BÅT") # Titeln på applikationen
-    st.write("RO BÅT is a funny robot that can help you out with programming tasks. However he doesn't directly answer your question, usually he asks another question back.")
+    st.title("Chatting with Glenn") # Titeln på applikationen
+    st.write("Glenn är en fotbollssupporter som håller på blåvitt och som ogillar Gais!")
     display_chat_messages() # Visar tidigare meddelanden
     handle_user_input() # Hanterar ny användarinmatning
 

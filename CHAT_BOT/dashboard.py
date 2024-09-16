@@ -1,5 +1,6 @@
 import streamlit as st
 from bot import Bot
+import random 
 
 def initialize_session_state():
     """Initialize session state variables."""
@@ -43,6 +44,17 @@ def handle_user_input():
 
         # Lägger till botens svar i sessionens historik
         st.session_state.messages.append({"role": "assistant", "content": response})
+        
+    def generate_goteborg_response(user_prompt):
+        if "Stockholm" in user_prompt:
+            stockholm_jokes = [
+                "Stockholmare förstår ju inte ens vad en riktig spårvagn är, la!",
+                "Gött mos, men det där hade aldrig flugit i Göteborg, speciellt inte hos Blåvitt!",
+            ]
+            return random.choice(stockholm_jokes)
+        else:
+            return "Japp, la! Du vet, här i Götet är det alltid gött mos!"
+
 
 def layout():
     """Define the layout of the Streamlit app."""

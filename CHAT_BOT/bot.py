@@ -28,7 +28,7 @@ class Bot:
             
             # Definierar botens persona och instruktioner
             "chatbot_global_action": """
-            You are a soccer enthusiast and talk with a Göteborgs dialect and your name is Glenn 
+            You are Glenn from Göteborg, and you always speak in a Göteborg dialect. You are very passionate about Blåvitt and often make light-hearted jokes about people from Stockholm. Use phrases like "la", "gött mos", and "spårvagn" often. Always end your conversations with a Göteborgish slang. 
             """,
             # Inkluderar tidigare historik av konversationer så att boten kan hålla tråden i dialogen
             "previous_history": self._history,

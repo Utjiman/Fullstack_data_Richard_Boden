@@ -51,11 +51,9 @@ WHERE Visningar IS NOT NULL
 
 -- tittar på datan efter rensning.
  SELECT *
-FROM cleaned_tabelldata_new
-LIMIT 10;
+FROM cleaned_tabelldata_new;
 
 -- tittar på datan för enhetstyper 
-
 SELECT *
 FROM enhetstyp.tabelldata
 LIMIT 10;
@@ -78,6 +76,7 @@ WHERE Enhetstyp IS NOT NULL  -- Exkludera rader där Enhetstyp är null
   AND Enhetstyp != 'Totalt'  -- Exkludera raden med Totalt
   AND Visningar IS NOT NULL
   AND "Visningstid (timmar)" IS NOT NULL;
+
 
 
 

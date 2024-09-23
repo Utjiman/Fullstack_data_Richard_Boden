@@ -13,19 +13,32 @@ CREATE TABLE marts.total_visningar_per_dag AS
 SELECT *
 FROM cleaned_total_visningar_per_dag;
 
+
 CREATE TABLE marts.genomsnittlig_visningslangd AS
 SELECT *
-FROM cleaned_genomsnittlig_visningslangd;
+FROM cleaned_tabelldata_new;
+
 
 CREATE TABLE marts.visningar_per_enhetstyp AS
 SELECT *
 FROM cleaned_visningar_per_enhetstyp;
 
 
+
 -- kontrollerar att dom finns i marts-schemat.
 SELECT table_name
 FROM information_schema.tables
 WHERE table_schema = 'marts';
+
+
+SELECT * FROM marts.visningar_per_enhetstyp;
+
+SELECT * FROM marts.genomsnittlig_visningslangd;
+
+SELECT * FROM marts.total_visningar_per_dag;
+
+
+
 
 
 

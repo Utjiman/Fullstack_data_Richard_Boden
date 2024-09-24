@@ -1,31 +1,3 @@
--- visa datan
-SELECT *
-FROM datum.totalt
-LIMIT 10;
-
---kontrollera nullvärden 
-SELECT COUNT(*) AS Antal_Nullvardes_Rader
-FROM datum.totalt
-WHERE Visningar IS NULL;
-
--- kollar efter dubbletter
-SELECT Datum, COUNT(*) AS Antal
-FROM datum.totalt
-GROUP BY Datum
-HAVING COUNT(*) > 1;
-
--- Skapa en sorterad tabell för total visningar per dag.
-CREATE TABLE cleaned_total_visningar_per_dag AS
-SELECT Datum, SUM(Visningar) AS Total_Visningar
-FROM datum.totalt
-GROUP BY Datum
-ORDER BY Datum;
-
--- kolla datan 
-SELECT *
-FROM cleaned_total_visningar_per_dag
-LIMIT 10;
-
 -- visa data för genomsnittlig visningslängd
 SELECT *
 FROM datum.tabelldata
@@ -76,6 +48,8 @@ WHERE Enhetstyp IS NOT NULL  -- Exkludera rader där Enhetstyp är null
   AND Enhetstyp != 'Totalt'  -- Exkludera raden med Totalt
   AND Visningar IS NOT NULL
   AND "Visningstid (timmar)" IS NOT NULL;
+ 
+ SELECT * FROM cleaned_visningar_per_enhetstyp;
 
 
 

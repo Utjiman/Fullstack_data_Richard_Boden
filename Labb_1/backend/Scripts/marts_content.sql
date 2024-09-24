@@ -4,43 +4,48 @@ SELECT
 	*
 FROM
 	information_schema.schemata;
-	
--- skapar schemat
+
 CREATE SCHEMA IF NOT EXISTS marts;
 
--- Lägger in de tre rensade tabellerna i marts-shcemat
-CREATE TABLE marts.total_visningar_per_dag AS
-SELECT *
-FROM cleaned_total_visningar_per_dag;
+CREATE TABLE IF NOT EXISTS marts.content_view_time AS 
+(
+SELECT
+	Videotitel,
+	"Publiceringstid för video" AS Publiceringstid,
+	Visningar,
+	"Visningstid (timmar)" AS Visningstid_timmar,
+	Exponeringar,
+	Prenumeranter,
+	"Klickfrekvens för exponeringar (%)" AS "Klickfrekvens_exponering_%"
+FROM
+	innehall.tabelldata
+ORDER BY
+	"Visningstid (timmar)" DESC OFFSET 1);
 
-
-CREATE TABLE marts.genomsnittlig_visningslangd AS
-SELECT *
-FROM cleaned_tabelldata_new;
-
-
-CREATE TABLE marts.visningar_per_enhetstyp AS
-SELECT *
-FROM cleaned_visningar_per_enhetstyp;
-
-
-
--- kontrollerar att dom finns i marts-schemat.
-SELECT table_name
-FROM information_schema.tables
-WHERE table_schema = 'marts';
-
-
-SELECT * FROM marts.visningar_per_enhetstyp;
-
-SELECT * FROM marts.genomsnittlig_visningslangd;
-
-SELECT * FROM marts.total_visningar_per_dag;
+CREATE TABLE IF NOT EXISTS marts.views_per_date AS (
+SELECT
+	STRFTIME('%Y-%m-%d',
+	Datum) AS Datum,
+	Visningar
+FROM
+	innehall.totalt);
 
 
 
+SELECT
+	*
+FROM
+	information_schema.tables
+WHERE
+	table_schema = 'marts';
+
+SELECT
+	*
+FROM
+	marts.content_view_time;
 
 
-
-
-
+SELECT
+	*
+FROM
+	marts.views_per_date;

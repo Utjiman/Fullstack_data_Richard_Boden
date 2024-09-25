@@ -48,7 +48,12 @@ class DeviceKPI:
 
 class OSKPI:
     def __init__(self) -> None:
-        pass
+        self._os = QueryDatabase("SELECT * FROM marts.cleaned_os;").df
+
+    def display_os_uses(self):
+        df = self._os
+
+        st.dataframe(df)
         
            
 

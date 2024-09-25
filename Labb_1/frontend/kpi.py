@@ -22,16 +22,36 @@ class ContentKPI:
                 st.metric(kpi, round(kpis[kpi]))
         st.dataframe(df)
 
-# create more KPIs here
 class DeviceKPI:
     def __init__(self) -> None:
         self._device = QueryDatabase("SELECT * FROM marts.visningar_per_enhetstyp;").df
 
     def display_device_views(self):
         df = self._device
-        st.markdown("## Kpier för enheter")
-        st.markdown("Här visas kpier för enheter som används för att se på videos")
+        st.markdown("## Kpi för enheter")
+        st.markdown("Här visas kpi för enheter som används för att se på videos")
+        
+        # lägger till en dropdown-meny för att välja enhetstyp
+        selected_device = st.selectbox('Välj enhetstyp', df['Enhetstyp'].unique())
 
+        # Filtrera data baserat på vald enhetstyp
+        filtered_data = df[df['Enhetstyp'] == selected_device]
 
-        st.dataframe(df)
+        # Visa metrics för vald enhetstyp
+        
+        visningar = filtered_data['Visningar'].values[0]
+        visningstid = filtered_data['Visningstid (timmar)'].values[0]
+
+            # Visa metrics som totalsiffror
+        st.metric(label="Totala Visningar", value=visningar)
+        st.metric(label="Totala Visningstid (timmar)", value=round(visningstid, 2))
+
+class OSKPI:
+    def __init__(self) -> None:
+        pass
+        
+           
+
+        
+        
 

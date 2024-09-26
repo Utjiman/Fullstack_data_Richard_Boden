@@ -28,21 +28,26 @@ class DeviceKPI:
 
     def display_device_views(self):
         df = self._device
-        st.markdown("## Kpi för enheter")
-        st.markdown("Här visas kpi för enheter som används för att se på videos")
+        st.markdown("## KPI för enheter")
+        st.markdown("Här visas KPI för enheter som används för att se på videos")
         
-        # lägger till en dropdown-meny för att välja enhetstyp
-        selected_device = st.selectbox('Välj enhetstyp', df['Enhetstyp'].unique())
+        # Lägg till en dropdown-meny och spara valet i session state
+        if 'selected_device' not in st.session_state:
+            st.session_state.selected_device = df['Enhetstyp'].iloc[0]  # Standardvärde
+
+        selected_device = st.selectbox('Välj enhetstyp', df['Enhetstyp'].unique(), index=df['Enhetstyp'].tolist().index(st.session_state.selected_device))
+
+        # Spara valet i session state
+        st.session_state.selected_device = selected_device
 
         # Filtrera data baserat på vald enhetstyp
         filtered_data = df[df['Enhetstyp'] == selected_device]
 
         # Visa metrics för vald enhetstyp
-        
         visningar = filtered_data['Visningar'].values[0]
         visningstid = filtered_data['Visningstid (timmar)'].values[0]
 
-            # Visa metrics som totalsiffror
+        # Visa metrics som totalsiffror
         st.metric(label="Totala Visningar", value=visningar)
         st.metric(label="Totala Visningstid (timmar)", value=round(visningstid, 2))
 

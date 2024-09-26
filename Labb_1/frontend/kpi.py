@@ -1,5 +1,6 @@
 import streamlit as st
 from utils.query_database import QueryDatabase
+from frontend.graphs import OSGraph
 
 class ContentKPI:
     def __init__(self) -> None:
@@ -54,12 +55,35 @@ class DeviceKPI:
 class OSKPI:
     def __init__(self) -> None:
         self._os = QueryDatabase("SELECT * FROM marts.cleaned_os;").df
-
+        self.os_graph = OSGraph(self._os)  # Skapa en instans av grafklassen
+        
+        
     def display_os_uses(self):
         df = self._os
 
+        st.markdown("## KPI för operativsystem")
+
+        # Lägg till en dropdown-meny för att välja operativsystem
+        selected_os = st.selectbox('Välj operativsystem', df['Operativsystem'].unique())
+
+        # Visa grafen genom att anropa grafklassen
+        self.os_graph.display_os_graph(selected_os)
+
+        # Visa den filtrerade tabellen under grafen
+        filtered_data = df[df['Operativsystem'] == selected_os]
+        st.dataframe(filtered_data)
+        
+class PrenumerantsKPI:
+    def __init__(self) -> None:
+        self._prenumerants = QueryDatabase("SELECT * FROM marts.cleaned_prenumerants;").df
+        
+    def display_prenumerants(self):
+        df = self._prenumerants
+        
         st.dataframe(df)
         
+        
+    
            
 
         

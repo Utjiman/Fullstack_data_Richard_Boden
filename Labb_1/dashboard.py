@@ -3,12 +3,14 @@ from frontend.kpi import ContentKPI
 from frontend.graphs import ViewsTrend
 from frontend.kpi import DeviceKPI
 from frontend.kpi import OSKPI
+from frontend.kpi import PrenumerantsKPI
 
 
 device_kpi = DeviceKPI()
 content_kpi = ContentKPI()
 views_graph = ViewsTrend()
 os_kpi = OSKPI()
+prenumerants_kpi = PrenumerantsKPI()
 
 def layout():
     st.markdown("# The data driven youtuber")
@@ -19,14 +21,14 @@ def layout():
     if "active_button" not in st.session_state:
         st.session_state.active_button = None
 
-    
+    # Knappinteraktioner
     if st.sidebar.button("Kpier för videos"):
         st.session_state.active_button = "button_1"
-    if st.sidebar.button("Kpier för enheter"):
+    if st.sidebar.button("Kpi för enheter"):
         st.session_state.active_button = "button_2"
-    if st.sidebar.button("Kpier för operativsystem"):
+    if st.sidebar.button("Kpi för operativsystem"):
         st.session_state.active_button = "button_3"
-    if st.sidebar.button("val 4"):
+    if st.sidebar.button("Kpi för prenumeranter"):
         st.session_state.active_button = "button_4"
 
     
@@ -38,7 +40,7 @@ def layout():
     elif st.session_state.active_button == "button_3":
         os_kpi.display_os_uses()
     elif st.session_state.active_button == "button_4":
-        st.markdown("Innehåll för val 4")
+        prenumerants_kpi.display_prenumerants()
     
    
     

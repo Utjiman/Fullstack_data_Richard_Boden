@@ -80,6 +80,20 @@ class PrenumerantsKPI:
     def display_prenumerants(self):
         df = self._prenumerants
         
+        
+        total_visningar = df['Total_Visningar'].sum()
+        total_visningstid = df['Total_Visningstid'].sum()
+
+        st.markdown("## KPI för Prenumeranter och Visningar")
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric(label="Totala Visningar", value=f"{total_visningar:,}")
+
+        with col2:
+            st.metric(label="Totala Visningstid (timmar)", value=round(total_visningstid, 2))
+
+        
         st.dataframe(df)
         
         

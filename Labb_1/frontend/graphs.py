@@ -49,4 +49,16 @@ class OSGraph:
         with col2:
             st.plotly_chart(fig_visningstid)
 
+class PrenumerantsGraph:
+    def __init__(self, df):
+        self.df = df
+
+    def display_prenumerants_pie_chart(self):
+        # Skapar Pi-chart för visningar baserat på prenumerationsstatus
+        fig = px.pie(self.df, names='Prenumerationsstatus', values='Total_Visningar', 
+                     title='Fördelning av Visningar baserat på Prenumerationsstatus',
+                     labels={'Prenumerationsstatus': 'Prenumerationsstatus', 'Total_Visningar': 'Antal Visningar'})
+        
+        
+        st.plotly_chart(fig) 
         

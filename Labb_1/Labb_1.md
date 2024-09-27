@@ -17,3 +17,34 @@ setup e). EDA gjord. kan behöva återkomma hit för att justera lite olika sake
 
 
 ![alt text](image.png)
+
+
+
+
+# uppgift 1 - plocka ut intressant data
+
+a, b). Började med att rensa datan. Skapade ett skript som jag döpte till cleaning_data.sql där jag gjorde lite querys och rensade lite data och skapade nya tabeller så den går att använda senare.
+    skapade sedan ett marts-schema "CREATE SCHEMA IF NOT EXISTS marts;" och la sedan in dom nya tabellerna i marts-schemat.
+
+ 
+## uppgift 2 - skapa en frontend dashboard
+
+a).  Done!
+
+b). Valde att gör kpier på enheter, os och prenumeranter som jag gjort olika visualiseringar med metrics och grafer m.m
+
+c). Flera filtreringar är implementerade.
+
+d). La in en meny på vänstersidan med knappar som väljer vilken kpi man vill titta på. Hittade några videos som förklarade rätt enkelt hur man gjorde.
+
+
+
+
+
+
+
+ref 
+
+https://www.youtube.com/watch?v=v90luNr14Xw
+
+https://www.youtube.com/watch?v=saOv9z6Fk88&t=408s

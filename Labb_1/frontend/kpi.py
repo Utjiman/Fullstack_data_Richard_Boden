@@ -29,8 +29,18 @@ class DeviceKPI:
 
     def display_device_views(self):
         df = self._device
-        st.markdown("## KPI för enheter")
-        st.markdown("Här visas KPI för enheter som används för att se på videos")
+        
+        total_visningar = df['Visningar'].sum()
+        total_visningstid = df['Visningstid (timmar)'].sum()
+
+        st.markdown("## KPI för enheter och Visningstid för per enhet i timmar")
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric(label="Totala Visningar alla Enheter", value=f"{total_visningar:,}")
+
+        with col2:
+            st.metric(label="Totala Visningstid (timmar) alla Enheter", value=round(total_visningstid, 2))
         
         # Lägg till en dropdown-meny och spara valet i session state
         if 'selected_device' not in st.session_state:
@@ -61,7 +71,17 @@ class OSKPI:
     def display_os_uses(self):
         df = self._os
 
-        st.markdown("## KPI för operativsystem")
+        total_visningar = df['Visningar'].sum()
+        total_visningstid = df['Visningstid (timmar)'].sum()
+
+        st.markdown("## KPI för operativsystem och Visningstid i timmar")
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric(label="Totala Visningar alla OS", value=f"{total_visningar:,}")
+
+        with col2:
+            st.metric(label="Totala Visningstid (timmar) alla OS", value=round(total_visningstid, 2))
 
         # Lägg till en dropdown-meny för att välja operativsystem
         selected_os = st.selectbox('Välj operativsystem', df['Operativsystem'].unique())

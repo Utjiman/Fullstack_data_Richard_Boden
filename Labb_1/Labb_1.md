@@ -53,11 +53,11 @@ Done!
 Flera filtreringar är implementerade.
 
 #### d)
- La in en meny på vänstersidan med knappar som väljer vilken kpi man vill titta på. Hittade några videos som förklarade rätt enkelt hur man gjorde.
+ La in en meny på vänstersidan med knappar som väljer vilken kpi man vill titta på. Hittade några videos som förklarade rätt enkelt hur man gjorde. Har även grejat lite med css och lagt in två stycken bilder i kolumn 1 och 3. Kolumn 2 innehållet är baserat på vilken knapp man tryckt in, annars är den tom.
 
 
 
-
+Skapat en requirements.txt fil vilket behövdes för att deploya appen på https://fullstackdatarichardboden.streamlit.app/ genom Streamlit Community Cloud.
 
 
 Referenser
@@ -65,3 +65,9 @@ Referenser
 https://www.youtube.com/watch?v=v90luNr14Xw
 
 https://www.youtube.com/watch?v=saOv9z6Fk88&t=408s
+
+https://www.youtube.com/watch?v=74c3KaAXPvk
+
+https://docs.streamlit.io/develop/api-reference/media/st.image
+
+https://discuss.streamlit.io/t/how-to-add-images-in-the-empty-space/51269

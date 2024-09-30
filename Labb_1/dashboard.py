@@ -46,13 +46,13 @@ def layout():
             st.session_state.active_button = None
 
         # Knappar för att välja KPI
-        if st.sidebar.button("Kpier för videos"):
+        if st.sidebar.button("KPI: Videos"):
             st.session_state.active_button = "button_1"
-        if st.sidebar.button("Kpi för enheter"):
+        if st.sidebar.button("KPI: Enheter"):
             st.session_state.active_button = "button_2"
-        if st.sidebar.button("Kpi för operativsystem"):
+        if st.sidebar.button("KPI: Operativsystem"):
             st.session_state.active_button = "button_3"
-        if st.sidebar.button("Kpi för prenumeranter"):
+        if st.sidebar.button("KPI: Prenumeranter"):
             st.session_state.active_button = "button_4"
 
         # Visar dynamiskt innehåll baserat på vilken knapp som trycks

@@ -61,7 +61,7 @@ Skapat en requirements.txt fil vilket behövdes för att deploya appen på https
 
 ## Sammanfattning
 
-Med det man fick med sig från föregående kurs inom objektorienterad programmering (C#) så var denna Labb relativt bekväm att göra. Konceptet är ju detsamma i C# som i Python vilket hjäpte mycket. Tycker det är smidigare att använda klasser i olika filer i Python än i C# dock. Kände att jag förstått hur allt fungerar med det och valde då att jobba med andra saker istället för att göra en megabra dashboard med många kpier m.m. Spenderade tiden med att plugga mer python som jag är mer osäker på och föregående AI-kurs. Det kommer jag ha mycket nytta av i kommande LIA.
+Med det man fick med sig från föregående kurs inom objektorienterad programmering (C#) så var denna Labb relativt bekväm att göra. Konceptet är ju detsamma i C# som i Python vilket hjäpte mycket. Tycker det är smidigare att använda klasser i olika filer i Python än i C# dock. Databaser känner jag mig ganska bekväm med och hur det var bra att se hur man kopplar ihop en databas med python på ett smidigt sätt. Kände att jag förstått hur allt fungerar med det och valde då att jobba med andra saker istället för att göra en megabra dashboard med många kpier m.m. Spenderade tiden med att plugga mer python som jag är mer osäker på och föregående AI-kurs. Det kommer jag ha mycket nytta av i kommande LIA. 
 
 
 Referenser
